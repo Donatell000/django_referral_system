@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "91d25a18-23ba-4f3b-aa50-d3bf6446c40b",
+		"name": "API django_referral_system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36909757"
+	},
+	"item": [
+		{
+			"name": "http://localhost/api/auth/request-code/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"phone\": \"+7XXXXXXXXXX\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/auth/request-code/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"request-code",
+						""
+					]
+				},
+				"description": "Запрос кода авторизации"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/api/auth/verify-code/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"phone\": \"+7XXXXXXXXXX\",\r\n  \"code\": \"XXXX\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/auth/verify-code/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"verify-code",
+						""
+					]
+				},
+				"description": "Подтверждение кода и выдача JWT"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/api/profile/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMjgwODIwLCJpYXQiOjE3NTMyNzkwMjAsImp0aSI6IjExYmI0MWQxZmMxYTQzYzRhMDJmYTRhYjMxOGNiOTgwIiwidXNlcl9pZCI6MX0.2zDgExOMd_QXmepsRmMAstQr86Pu-t8rsHgwVUKbOGc",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"access\": \"<access_token>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/profile/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"profile",
+						""
+					]
+				},
+				"description": "Получить профиль пользователя"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/api/profile/activate-invite/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"access\": \"<access_token>\",\r\n  \"code\": \"<invite_code>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/profile/activate-invite/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"profile",
+						"activate-invite",
+						""
+					]
+				},
+				"description": "Активировать чужой invite-код"
+			},
+			"response": []
+		}
+	]
+}
